@@ -13,6 +13,7 @@
 #include <QString>
 #include <QPropertyAnimation>
 #include "caution.h"
+#include "form.h"
 namespace Ui {
 class Game;
 }
@@ -64,6 +65,7 @@ private:
     QTimer *timer;
     QPropertyAnimation *ani;
     int countback;
+
 };
 
 #endif // GAME_H

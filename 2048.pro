@@ -13,13 +13,16 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         game.cpp \
-    caution.cpp
+    caution.cpp \
+    start.cpp
 
 HEADERS  += game.h \
-    caution.h
+    caution.h \
+    start.h
 
 FORMS    += game.ui \
-    caution.ui
+    caution.ui \
+    start.ui
 
 RESOURCES += \
     blk.qrc
