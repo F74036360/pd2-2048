@@ -10,6 +10,7 @@ int main(int argc, char *argv[])
     w.setMinimumSize(800,600);
     w.show();*/
     start s;
+    s.setWindowTitle("Welcome To 2048");
     s.show();
 
     return a.exec();
