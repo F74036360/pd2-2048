@@ -1,0 +1,23 @@
+<RCC>
+    <qresource prefix="/blk">
+        <file alias="blk2">2.jpg</file>
+        <file alias="blk4">4.jpg</file>
+        <file alias="blk8">8.jpg</file>
+        <file alias="blk16">16.jpg</file>
+        <file alias="blk32">32.jpg</file>
+        <file alias="blk64">64.jpg</file>
+        <file alias="blk128">128.jpg</file>
+        <file alias="blk256">256.jpg</file>
+        <file alias="blk512">512.jpg</file>
+        <file alias="blk1024">1024.jpg</file>
+        <file alias="blk2048">2048.jpg</file>
+        <file>gameover.jpg</file>
+        <file>win.jpg</file>
+        <file>sky.jpg</file>
+        <file>cloud_PNG25.png</file>
+        <file>branch-41013_640.png</file>
+        <file>male_humming_bird_png_by_doloresdevelde-d4ktla0.png</file>
+        <file>tumblr_ml3y1rYA4Z1so1hpzo1_400.png</file>
+        <file>caution.png</file>
+    </qresource>
+</RCC>
