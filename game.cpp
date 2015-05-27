@@ -21,6 +21,7 @@ Game::Game(QWidget *parent) :
                 newCol[i][j]=0;
             }
         }
+    //for label to control
     block[0][0]=ui->num11;
     block[0][1]=ui->num12;
     block[0][2]=ui->num13;
@@ -37,8 +38,8 @@ Game::Game(QWidget *parent) :
     block[3][1]=ui->num42;
     block[3][2]=ui->num43;
     block[3][3]=ui->num44;
-    ui->label->setVisible(0);
-    ui->win->setVisible(0);
+    ui->label->setVisible(0);//gameover's pic
+    ui->win->setVisible(0);//win's pic
     for(int i=0;i<4;i++)
     {
         for(int j=0;j<4;j++)
@@ -57,12 +58,12 @@ Game::Game(QWidget *parent) :
     pixmap[7].load(":/blk/blk256");
     pixmap[8].load(":/blk/blk512");
     pixmap[9].load(":/blk/blk1024");
-    pixmap[10].load(":/blk/C:/Users/Joan/Desktop/2048.jpg");
+    pixmap[10].load(":/blk/blk2048");
     Intscore=0;
     ui->score->setVisible(1);
     ui->score->setAlignment(Qt::AlignCenter);
     ui->scorename->setAlignment(Qt::AlignCenter);
-    str=QString::number(Intscore,10);
+    str=QString::number(Intscore,10);//int to string
     ui->score->setText(str);
     upadd=0;
     downadd=0;
@@ -106,6 +107,7 @@ void Game::checkSame()
             }
         }
     }
+    //everytime after blocks are calculated,check if it is as the previous, if not, call the new pic for the block
     if(a==1)Rand();
 }
 
@@ -170,7 +172,7 @@ void Game::Rand()
     setImage(block[randi][randj],row[randi][randj]);
     block[randi][randj]->setVisible(1);
     ani= new QPropertyAnimation(block[randi][randj],"geometry",this);
-    ani->setDuration(150);
+    ani->setDuration(150);//rand's number will delay 0.15s to show
     ani->setStartValue(QRect(block[randi][randj]->x(),block[randi][randj]->y(), 0, 0));
     ani->setEndValue(QRect(block[randi][randj]->x(),block[randi][randj]->y(),block[randi][randj]->width(), block[randi][randj]->height()));
     ani->start();
@@ -204,6 +206,7 @@ void Game::addUpCol()
     leftadd=0;
     rightadd=0;
     upadd=0;
+    //set to up site
     for(i=0;i<4;i++)
     {
         for(j=0;j<4;j++)
@@ -224,6 +227,7 @@ void Game::addUpCol()
             }
         }
     }
+    //if same,add them together and the lower become 0
     for(i=0;i<4;i++)
     {
         for(j=0;j<4;j++)
@@ -244,6 +248,7 @@ void Game::addUpCol()
     }
     Intscore=Intscore+upadd;
     str=QString::number(Intscore,10);
+    //up again
     for(i=0;i<4;i++)
     {
         for(j=0;j<4;j++)
@@ -562,6 +567,7 @@ void Game::on_pushButton_clicked()
 
 void Game::on_restart_clicked()
 {
+
     ui->WIN->setVisible(0);
     ui->win->setVisible(0);
     ui->label->setVisible(0);

@@ -3,6 +3,8 @@
 
 #include <QWidget>
 #include "game.h"
+#include <QFileDialog>
+
 namespace Ui {
 class start;
 }
