@@ -87,6 +87,44 @@ void Game::setthesame()
         }
     }
 }
+void Game::ifwin()
+{
+
+    for(i=0;i<4;i++)
+    {
+        for(j=0;j<4;j++)
+        {
+            if(row[i][j]==2048)
+            {
+                ui->win->setVisible(1);
+                ui->WIN->setVisible(1);
+                ui->backbuttom->setVisible(0);
+                ui->exit->setVisible(1);
+                QPropertyAnimation *nani= new QPropertyAnimation(ui->win,"geometry",this);
+                nani->setDuration(500);
+                nani->setStartValue(QRect(0,0, 0, 0));
+                nani->setEndValue(QRect(0,0,600, 600));
+                nani->start();
+                QPropertyAnimation *nanii= new QPropertyAnimation(ui->WIN,"geometry",this);
+                nanii->setDuration(500);
+                nanii->setStartValue(QRect(0,0, 0, 0));
+                nanii->setEndValue(QRect(200,40,211, 101));
+                nanii->start();
+                for(int a=0;a<4;a++)
+                {
+                    for(int b=0;b<4;b++)
+                    {
+                        row[a][b]=0;
+                        column[a][b]=0;
+                        newCol[a][b]=0;
+                        newRow[a][b]=0;
+                    }
+                }
+            }
+        }
+    }
+}
+
 void Game::checkSame()
 {
     int a=0;
@@ -121,6 +159,7 @@ void Game::keyPressEvent(QKeyEvent *event)
             countback=0;
             die=ifdie();
             gameover(die);
+            ifwin();
             setthesame();
             addLeftRow();
             checkSame();
@@ -130,6 +169,7 @@ void Game::keyPressEvent(QKeyEvent *event)
             countback=0;
             die=ifdie();
             gameover(die);
+            ifwin();
             setthesame();
             addRightRow();
             checkSame();
@@ -139,6 +179,7 @@ void Game::keyPressEvent(QKeyEvent *event)
             countback=0;
             die=ifdie();
             gameover(die);
+            ifwin();
             setthesame();
             addUpCol();
             checkSame();
@@ -148,6 +189,7 @@ void Game::keyPressEvent(QKeyEvent *event)
             countback=0;
             die=ifdie();
             gameover(die);
+            ifwin();
             setthesame();
             addDownCol();
             checkSame();
@@ -515,29 +557,7 @@ void Game::setImage(QLabel *block,int t)
         break;
    case 2048:
        block->setPixmap(pixmap[10]);
-       ui->win->setVisible(1);
-       ani= new QPropertyAnimation(ui->win,"geometry",this);
-       ani->setDuration(300);
-       ani->setStartValue(QRect(0,0, 0, 0));
-       ani->setEndValue(QRect(0,0,600, 600));
-       ui->WIN->setVisible(1);
-       ani= new QPropertyAnimation(ui->WIN,"geometry",this);
-       ani->setDuration(300);
-       ani->setStartValue(QRect(0,0, 0, 0));
-       ani->setEndValue(QRect(200,40,211, 101));
-       ui->backbuttom->setVisible(0);
-       ui->exit->setVisible(1);
-       for(i=0;i<4;i++)
-       {
-           for(j=0;j<4;j++)
-           {
-               row[i][j]=0;
-               column[i][j]=0;
-               newCol[i][j]=0;
-               newRow[i][j]=0;
-           }
-       }
-       break;
+        break;
     }
 
 }
@@ -562,6 +582,7 @@ void Game::on_pushButton_clicked()
     Intscore=0;
     str=QString::number(Intscore,10);
     ui->score->setText(str);
+    Rand();
     Rand();
 }
 
@@ -592,6 +613,7 @@ void Game::on_restart_clicked()
     upadd=0;
     str=QString::number(Intscore,10);
     ui->score->setText(str);
+    Rand();
     Rand();
 }
 int Game::ifdie()

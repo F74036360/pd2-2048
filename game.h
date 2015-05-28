@@ -65,6 +65,7 @@ private:
     int column[4][4];
     int newRow[4][4];
     int newCol[4][4];
+    void ifwin();
 
 };
 
