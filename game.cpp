@@ -209,7 +209,9 @@ void Game::Rand()
         randi=(rand()%4);
         randj=(rand()%4);
     }
-    row[randi][randj]=2;
+    int temprand=(rand()%5);
+    if(temprand==4)row[randi][randj]=4;
+    else row[randi][randj]=2;
     RowToCol();
     setImage(block[randi][randj],row[randi][randj]);
     block[randi][randj]->setVisible(1);
