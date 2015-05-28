@@ -96,20 +96,6 @@ void Game::ifwin()
         {
             if(row[i][j]==2048)
             {
-                ui->win->setVisible(1);
-                ui->WIN->setVisible(1);
-                ui->backbuttom->setVisible(0);
-                ui->exit->setVisible(1);
-                QPropertyAnimation *nani= new QPropertyAnimation(ui->win,"geometry",this);
-                nani->setDuration(500);
-                nani->setStartValue(QRect(0,0, 0, 0));
-                nani->setEndValue(QRect(0,0,600, 600));
-                nani->start();
-                QPropertyAnimation *nanii= new QPropertyAnimation(ui->WIN,"geometry",this);
-                nanii->setDuration(500);
-                nanii->setStartValue(QRect(0,0, 0, 0));
-                nanii->setEndValue(QRect(200,40,211, 101));
-                nanii->start();
                 for(int a=0;a<4;a++)
                 {
                     for(int b=0;b<4;b++)
@@ -559,6 +545,20 @@ void Game::setImage(QLabel *block,int t)
         break;
    case 2048:
        block->setPixmap(pixmap[10]);
+       ui->win->setVisible(1);
+       ui->WIN->setVisible(1);
+       ui->backbuttom->setVisible(0);
+       ui->exit->setVisible(1);
+       QPropertyAnimation *nani= new QPropertyAnimation(ui->win,"geometry",this);
+       nani->setDuration(500);
+       nani->setStartValue(QRect(0,0, 0, 0));
+       nani->setEndValue(QRect(0,0,600, 600));
+       nani->start();
+       QPropertyAnimation *nanii= new QPropertyAnimation(ui->WIN,"geometry",this);
+       nanii->setDuration(500);
+       nanii->setStartValue(QRect(0,0, 0, 0));
+       nanii->setEndValue(QRect(200,40,211, 101));
+       nanii->start();
         break;
     }
 
